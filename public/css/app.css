@@ -1,0 +1,89 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto";
+}
+
+.h-100 {
+    min-height: 100% !important;
+}
+
+.ml-3 {
+    margin-left: 2em;
+}
+
+.py-1 {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.pt-1 {
+    padding-top: 2em;
+}
+
+.container {
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-right {
+    justify-content: right;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 1em 3em;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn i {
+    position: relative;
+    font-size: 18px;
+    left: -2em;
+    color: #515151;
+}
+
+.btn-navbar {
+    width: 178px;
+    text-decoration: none;
+}
+
+.btn-w {
+    background-color: #fff;
+    color: #515151;
+}
+
+.btn-mg {
+    background: #c4c4c4;
+    color: #515151;
+}
+
+.btn-g {
+    background: #515151;
+    color: white;
+}

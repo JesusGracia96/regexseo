@@ -1,0 +1,25 @@
+.image-card {
+    max-width: 268px;
+    overflow: auto;
+    height: min-content;
+    box-sizing: border-box;
+}
+
+.image-card img{
+    max-height: 366px;
+    max-width: 100%;
+    height: auto;
+}
+
+.image-title {
+    font-size: 18px;
+    line-height: 21px;
+    color: #000;
+}
+
+.image-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000;
+}
