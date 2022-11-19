@@ -12,14 +12,16 @@ class ImageCard extends Component
      * @return void
      */
 
+    public $id;
     public $image;
     public $title;
     public $description;
     public $likes;
     
 
-    public function __construct($title, $description, $image, $likes)
-    {
+    public function __construct($id, $title, $description, $image, $likes)
+    {   
+        $this->id = $id;
         $this->image = $image;
         $this->title = $title;
         $this->description = $description;
@@ -32,7 +34,7 @@ class ImageCard extends Component
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
     public function render()
-    {
+    {   
         return view('components.image-card');
     }
 }

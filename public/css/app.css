@@ -118,6 +118,13 @@ body {
     text-align: center;
 }
 
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
 
 .form-group {
     display: flex;
@@ -145,4 +152,8 @@ body {
 .file-control {
     background-color: #C4C4C4;
     color: white;
+}
+
+.blur-bg {
+    filter: blur(5px);
 }

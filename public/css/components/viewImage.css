@@ -1,0 +1,43 @@
+.dark-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100vh;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.view-image {
+    box-sizing: border-box;
+    width: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 5px;
+}
+
+.view-image img {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+#title-view-image {
+    color: white;
+}
+
+.close-icon {
+    font-size: 18px;
+    color: white;
+    font-weight: 700;
+    padding-top: 1em;
+    padding-right: 1em;
+}
+
+.close-icon span {
+    padding: 5px;
+    cursor: pointer;
+}
+
