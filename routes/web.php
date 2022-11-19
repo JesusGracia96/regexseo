@@ -16,3 +16,6 @@ use App\Http\Controllers\ImagesController;
 
 Route::get('/', [ImagesController::class, 'index']);
 
+Route::get('/upload', [ImagesController::class, 'upload'])->name('upload');
+Route::post('/save', [ImagesController::class, 'save'])->name('save');
+

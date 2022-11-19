@@ -1,0 +1,13 @@
+.div-upload {
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.imagen-muestra {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+}

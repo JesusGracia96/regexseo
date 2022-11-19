@@ -1,9 +1,20 @@
 @extends('layout.app')
 <link rel="stylesheet" href="{{ asset('/css/index.css') }}">
 @section('content')
+    @if (session('message'))
+        <script>
+            alert("{{ session('message') }}")
+        </script>
+    @endif
     <div class="main-images">
-        {{-- @for ($i = 0; $i < 12; $i++)
-            <x-image-card image="#" title="Título" description="Descripcion aleatoria que intentemos hacer larga para ver ejemplos" likes="10" />
-        @endfor --}}
+        @if ($images->count() > 0)
+            @foreach ($images as $image)
+                <x-image-card image="{{ asset('images/' . $image->name) }}" title="{{ $image->title }}"
+                    description="{{ $image->description }}" likes="{{ $image->likes }}" />
+            @endforeach
+        @else
+            <h2>No se han registrado imágenes aún</h2>
+        @endif
+
     </div>
 @endsection

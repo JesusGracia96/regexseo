@@ -15,17 +15,22 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
+            $table->text('name');
             $table->string('title');
             $table->text('description');
             $table->foreignId('userId')
+                ->nullable()
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')
-                ->onUpdate('cascade')
-                ->nullable();
+                ->onUpdate('cascade');
             $table->integer('likes')->default('0');
             $table->timestamps();
         });
+    }
+
+    public function User(){
+        return $this->hasOne(User::class);
     }
 
     /**

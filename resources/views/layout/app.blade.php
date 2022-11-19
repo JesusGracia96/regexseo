@@ -22,7 +22,7 @@
             </div>
             <div class="rgt-side  d-flex flex-1 align-items-center justify-content-right">
                 <a href="#" class="btn btn-w btn-navbar"><i class="fa fa-heart"></i>FAVORITES</a>
-                <a href="#" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a>
+                <a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a>
                 <a href="#" class="btn btn-g ml-3 btn-navbar">LOGIN</a>
             </div>
         </div>
