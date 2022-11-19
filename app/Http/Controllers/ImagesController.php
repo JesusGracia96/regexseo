@@ -44,6 +44,6 @@ class ImagesController extends Controller
         }
         $image->save();
 
-        return redirect('/')->with('message', 'Image uploades, if you are not registered you must wait for the image to be validated');
+        return redirect('/')->with('message', 'Image uploaded, if you are not registered you must wait for the image to be validated');
     }
 }
