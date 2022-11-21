@@ -6,11 +6,11 @@
         @if ($images->count() > 0)
             @foreach ($images as $image)
                 <x-image-card id="id-image-{{ $image->id }}" image="{{ asset('storage/' . $image->name) }}"
-                    title="{{ $image->title }}" description="{{ $image->description }}" likes="{{ $image->likes }}" author="{{ $image->email }}"/>
+                    title="{{ $image->title }}" description="{{ $image->description }}" toModerate="1" />
             @endforeach
         @else
             <div class="text-center">
-                <h2 class="text-center">NO IMAGES LOADED YET</h2>
+                <h2 class="text-center">NO IMAGES TO MODERATE</h2>
             </div>
         @endif
     </div>
@@ -32,6 +32,26 @@
             $("#image-view").addClass('d-none');
             $('.dark-bg').addClass('d-none');
         });
+
+        $('.btn-allow').click(function() {
+            var imageId = $(this).val();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "{{ route('allow') }}",
+                data: {
+                    'imgId': imageId
+                },
+                type: 'post',
+                success: function(response) {
+                    $('#btn-' + imageId).text('Allowed');
+                    $('#btn-' + imageId).addClass('btn-allowed');
+                    $('#btn-' + imageId).prop('disabled', true);
+                }
+
+            })
+        })
     </script>
 
 

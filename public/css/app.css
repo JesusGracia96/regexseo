@@ -139,6 +139,10 @@ body {
     margin-top: 1em;
 }
 
+.btn-allowed {
+    background-color: hsl(140deg 29% 80%);
+}
+
 .text-center {
     text-align: center;
 }

@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>FullStack Developer Test</title>
     <link rel="stylesheet" href="{{ asset('/css/navbar.css') }}">
@@ -27,7 +28,7 @@
                 @auth
                     <p class="mr-1">{{ Auth::user()->email }}</p>
                     @if (Auth::user()->roleid == 1)
-                        <a href="#" class="btn btn-w btn-navbar mr-3">Moderation</a>
+                        <a href="{{ route('moderation') }}" class="btn btn-w btn-navbar mr-3">Moderation</a>
                     @endif
                     <a href="#" class="btn btn-w btn-navbar"><i class="fa fa-heart"></i>FAVORITES</a>
                     <a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a>

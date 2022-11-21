@@ -18,9 +18,10 @@ class ImageCard extends Component
     public $description;
     public $likes;
     public $author;
+    public $toModerate;
     
 
-    public function __construct($id, $title, $description, $image, $likes, $author)
+    public function __construct($id, $title, $description, $image, $likes = 0, $author = "", $toModerate = 0)
     {   
         $this->id = $id;
         $this->image = $image;
@@ -28,6 +29,7 @@ class ImageCard extends Component
         $this->description = $description;
         $this->likes = $likes;
         $this->author = $author;
+        $this->toModerate = $toModerate;
     }
 
     /**

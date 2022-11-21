@@ -16,9 +16,14 @@ use App\Http\Controllers\CustomAuthController;
 */
 
 Route::get('/', [ImagesController::class, 'index'])->name('index');
+Route::get('/unaothorized', function(){
+    return view('unaothorized');
+});
 
 Route::get('/upload', [ImagesController::class, 'upload'])->name('upload');
 Route::post('/save', [ImagesController::class, 'save'])->name('save');
+Route::get('/moderation', [ImagesController::class, 'moderation'])->name('moderation')->middleware('isAdmin');
+Route::post('/allow', [ImagesController::class, 'allow'])->name('allow');
 
 Route::prefix('auth')->group(function () {
     Route::get('/', [CustomAuthController::class, 'index'])->name('auth');

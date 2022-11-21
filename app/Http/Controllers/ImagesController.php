@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Storage;
 class ImagesController extends Controller
 {
     public function index() {
-        $images = Image::select('images.id', 'images.name','images.title', 'images.description', 'images.likes', 'users.email')
+        $images = Image::where('authorized', '=', '1')
+            ->select('images.id', 'images.name','images.title', 'images.description', 'images.likes', 'users.email')
             ->leftjoin('users', 'users.id', '=', 'images.userid')
+            ->orderBy('images.created_at', 'desc')
             ->get();
 
         return view('index', ['images' => $images]);
@@ -42,11 +44,25 @@ class ImagesController extends Controller
         $image->description = $request->description;
         if(Auth::user()){
             $image->userId = Auth::id();
+            $image->authorized = 1;
         }else {
             $image->userId = null;
         }
         $image->save();
 
         return redirect('/')->with('message', 'Image uploaded, if you are not registered you must wait for the image to be validated');
+    }
+
+    public function moderation(){
+        $images = Image::where('authorized', '=', '0')->get();
+        return view('moderation', ['images' => $images]);
+    }
+
+    public function allow(Request $request){
+        $id = explode('-', $request->imgId);
+        $image = Image::find($id[2]);
+        $image->authorized = 1;
+        $image->save();
+        return ['response' => true];
     }
 }

@@ -24,6 +24,7 @@ return new class extends Migration
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->integer('authorized')->default('0');
             $table->integer('likes')->default('0');
             $table->timestamps();
         });
