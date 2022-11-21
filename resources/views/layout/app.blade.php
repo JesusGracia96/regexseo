@@ -14,10 +14,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -27,9 +24,18 @@
                 <a href="{{ url('/') }}">{{ config('app.name') }}</a>
             </div>
             <div class="rgt-side  d-flex flex-1 align-items-center justify-content-right">
-                <a href="#" class="btn btn-w btn-navbar"><i class="fa fa-heart"></i>FAVORITES</a>
-                <a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a>
-                <a href="#" class="btn btn-g ml-3 btn-navbar">LOGIN</a>
+                @auth
+                    <p class="mr-1">{{ Auth::user()->email }}</p>
+                    @if (Auth::user()->roleid == 1)
+                        <a href="#" class="btn btn-w btn-navbar mr-3">Moderation</a>
+                    @endif
+                    <a href="#" class="btn btn-w btn-navbar"><i class="fa fa-heart"></i>FAVORITES</a>
+                    <a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a>
+                    <a href="{{ route('logout') }}" class="btn btn-g ml-3 btn-navbar">LOGOUT</a>
+                @else
+                    <a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a>
+                    <a href="{{ route('auth') }}" class="btn btn-g ml-3 btn-navbar">LOGIN</a>
+                @endauth
             </div>
         </div>
     </div>

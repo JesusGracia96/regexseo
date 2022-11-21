@@ -7,20 +7,29 @@
             alert("{{ session('message') }}")
         </script>
     @endif
-    <div class="main-images">
-        @if ($images->count() > 0)
+    @if (session('success'))
+        <script>
+            alert("{{ session('success') }}")
+        </script>
+    @endif
+
+    @if ($images->count() > 0)
+        <div class="main-images">
             @foreach ($images as $image)
                 <x-image-card id="id-image-{{ $image->id }}" image="{{ asset('images/' . $image->name) }}"
                     title="{{ $image->title }}" description="{{ $image->description }}" likes="{{ $image->likes }}" />
             @endforeach
-        @else
-            <h2>No se han registrado imágenes aún</h2>
-        @endif
+        </div>
+    @else
+        <div class="text-center">
+            <h2 class="text-center">NO IMAGES LOADED YET</h2>
+        </div>
+    @endif
 
-    </div>
+
 
     <x-view-image />
-    
+
     <script>
         $('.image-card').click(function() {
             let imageSrc = $(this).children('.image-view').attr('src');
@@ -37,5 +46,5 @@
         });
     </script>
 
-    
+
 @endsection
