@@ -16,8 +16,25 @@ body {
     min-height: 100% !important;
 }
 
+.w-100 {
+    width: 100%;
+}
+
+.mr-1 {
+    margin-right: 1em;
+}
+
+.mr-3 {
+    margin-right: 2em;
+
+}
+
 .ml-3 {
     margin-left: 2em;
+}
+
+.ml-1 {
+    margin-left: 1em;
 }
 
 .py-1 {
@@ -51,12 +68,19 @@ body {
     flex-direction: column;
 }
 
+.justify-content-start {
+    justify-content: flex-start;
+}
+
 .justify-content-between {
     justify-content: space-between;
 }
 
 .justify-content-right {
     justify-content: right;
+}
+.justify-content-left {
+    justify-content: left !important;
 }
 
 .justify-content-center {
@@ -72,7 +96,7 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     padding: 1em 3em;
-    border: 1px solid #c4c4c4;
+    border: 1px solid #c4c4c4 !important;
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
@@ -80,8 +104,9 @@ body {
 
 .btn i {
     position: relative;
-    font-size: 18px;
-    left: -2em;
+    font-size: 16px;
+    left: -1em;
+    top: 2px;
     color: #515151;
 }
 
@@ -156,4 +181,45 @@ body {
 
 .blur-bg {
     filter: blur(5px);
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.checkbox-input {
+    width: 30px;
+    height: 30px;
+    color: black;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #515151;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="checkbox"]:after {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f00c";
+    font-size: 20px;
+    font-weight: 900;
+    color: black;
+    display: none;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #c4c4c4;
+}
+
+input[type="checkbox"]:checked:after {
+    display: block;
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,15 @@ use App\Http\Controllers\ImagesController;
 |
 */
 
-Route::get('/', [ImagesController::class, 'index']);
+Route::get('/', [ImagesController::class, 'index'])->name('index');
 
 Route::get('/upload', [ImagesController::class, 'upload'])->name('upload');
 Route::post('/save', [ImagesController::class, 'save'])->name('save');
+
+Route::prefix('auth')->group(function () {
+    Route::get('/', [CustomAuthController::class, 'index'])->name('auth');
+    Route::post('/login', [CustomAuthController::class, 'login'])->name('login');
+    Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
+    Route::post('/register', [CustomAuthController::class, 'register'])->name('register');
+});
 
