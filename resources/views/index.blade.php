@@ -12,20 +12,18 @@
             alert("{{ session('success') }}")
         </script>
     @endif
-
-    @if ($images->count() > 0)
-        <div class="main-images">
+    <div class="main-images">
+        @if ($images->count() > 0)
             @foreach ($images as $image)
-                <x-image-card id="id-image-{{ $image->id }}" image="{{ asset('images/' . $image->name) }}"
-                    title="{{ $image->title }}" description="{{ $image->description }}" likes="{{ $image->likes }}" />
+                <x-image-card id="id-image-{{ $image->id }}" image="{{ asset('storage/' . $image->name) }}"
+                    title="{{ $image->title }}" description="{{ $image->description }}" likes="{{ $image->likes }}" author="{{ $image->email }}"/>
             @endforeach
-        </div>
-    @else
-        <div class="text-center">
-            <h2 class="text-center">NO IMAGES LOADED YET</h2>
-        </div>
-    @endif
-
+        @else
+            <div class="text-center">
+                <h2 class="text-center">NO IMAGES LOADED YET</h2>
+            </div>
+        @endif
+    </div>
 
 
     <x-view-image />

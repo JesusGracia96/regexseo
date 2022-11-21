@@ -17,15 +17,17 @@ class ImageCard extends Component
     public $title;
     public $description;
     public $likes;
+    public $author;
     
 
-    public function __construct($id, $title, $description, $image, $likes)
+    public function __construct($id, $title, $description, $image, $likes, $author)
     {   
         $this->id = $id;
         $this->image = $image;
         $this->title = $title;
         $this->description = $description;
         $this->likes = $likes;
+        $this->author = $author;
     }
 
     /**

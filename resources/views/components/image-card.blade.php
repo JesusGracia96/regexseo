@@ -8,6 +8,8 @@
     <p class="image-description">
         {{ $description }}
     </p>
-
+    @if ($author != null)
+        <p>Author: {{ $author }}</p>
+    @endif
     <p class="likes"><i class="fa fa-heart"></i> {{ $likes }}</p>
 </div>

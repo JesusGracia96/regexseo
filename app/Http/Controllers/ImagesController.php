@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Storage;
 class ImagesController extends Controller
 {
     public function index() {
-        $images = Image::all();
+        $images = Image::select('images.id', 'images.name','images.title', 'images.description', 'images.likes', 'users.email')
+            ->leftjoin('users', 'users.id', '=', 'images.userid')
+            ->get();
 
         return view('index', ['images' => $images]);
     }
