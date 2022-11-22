@@ -24,6 +24,8 @@ Route::get('/upload', [ImagesController::class, 'upload'])->name('upload');
 Route::post('/save', [ImagesController::class, 'save'])->name('save');
 Route::get('/moderation', [ImagesController::class, 'moderation'])->name('moderation')->middleware('isAdmin');
 Route::post('/allow', [ImagesController::class, 'allow'])->name('allow');
+Route::post('/like', [ImagesController::class, 'addFavorite'])->name('like');
+Route::get('/favorites', [ImagesController::class, 'favorites'])->name('favorites');
 
 Route::prefix('auth')->group(function () {
     Route::get('/', [CustomAuthController::class, 'index'])->name('auth');

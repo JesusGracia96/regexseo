@@ -11,12 +11,10 @@
             @endforeach
         @else
             <div class="text-center">
-                <h2 class="text-center">NO IMAGES LOADED YET</h2>
+                <h2 class="text-center">YOU DONT HAVE ANY IMAGE IN FAVORITES</h2>
             </div>
         @endif
     </div>
-
-
     <x-view-image />
 
     <script>
@@ -47,18 +45,11 @@
                 type: 'post',
                 success: function(response) {
                     let data = JSON.parse(response);
-                    if (data[0] == "liked") {
-                        $('#like-' + imgId).css('color', 'red');
-                        $('#like-span-' + imgId).text(data[1])
-                    }else {
-                        $('#like-' + imgId).css('color', 'black');
-                        $('#like-span-' + imgId).text(data[0])
+                    if (data[0] != "liked") {
+                        location.reload();
                     }
-                    
                 }
-
             })
         })
     </script>
-
 @endsection

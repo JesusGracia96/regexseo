@@ -147,6 +147,10 @@ body {
     text-align: center;
 }
 
+.color-red {
+    color: red;
+}
+
 .text-left {
     text-align: left;
 }

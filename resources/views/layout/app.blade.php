@@ -30,7 +30,7 @@
                     @if (Auth::user()->roleid == 1)
                         <a href="{{ route('moderation') }}" class="btn btn-w btn-navbar mr-3">Moderation</a>
                     @endif
-                    <a href="#" class="btn btn-w btn-navbar"><i class="fa fa-heart"></i>FAVORITES</a>
+                    <a href="{{ route('favorites') }}" class="btn btn-w btn-navbar"><i class="fa fa-heart"></i>FAVORITES</a>
                     <a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a>
                     <a href="{{ route('logout') }}" class="btn btn-g ml-3 btn-navbar">LOGOUT</a>
                 @else
