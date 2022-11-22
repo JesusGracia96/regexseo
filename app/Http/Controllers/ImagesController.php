@@ -71,7 +71,8 @@ class ImagesController extends Controller
     }
 
     public function favorites(){
-        $images = Image::leftjoin('likes', 'images.id', '=', 'likes.imageid')
+        if(Auth::user()){
+            $images = Image::leftjoin('likes', 'images.id', '=', 'likes.imageid')
             ->where('likes.userid', '=', Auth::id())
             ->leftjoin('users', 'images.userid', '=', 'users.id')
             ->select('images.id','images.name','images.title', 'images.description','users.email',DB::raw("count(likes.imageid) as count"))
@@ -80,24 +81,33 @@ class ImagesController extends Controller
             ->get();
         
         return view('favorites', ['images' => $images]);
+        }else {
+            return redirect('auth');
+        }
+        
     }
 
     public function addFavorite(Request $request){
-        $id = explode('-', $request->imgId);
-        $response = [];
-        if(Like::where('imageid', '=', $id[2])->where('userid', '=', Auth::id())->count() > 0){
-            $favorite = Like::where('imageid', '=', $id[2])->where('userid', '=', Auth::id())->first(); 
-            $favorite->forceDelete();   
+        if(Auth::user()){
+            $id = explode('-', $request->imgId);
+            $response = [];
+            if(Like::where('imageid', '=', $id[2])->where('userid', '=', Auth::id())->count() > 0){
+                $favorite = Like::where('imageid', '=', $id[2])->where('userid', '=', Auth::id())->first(); 
+                $favorite->forceDelete();   
+            }else {
+                $favorite = Like::firstOrNew(['imageid' => $id[2], 'userid' => Auth::id()]);
+                $favorite->imageid = $id[2];
+                $favorite->userid = Auth::id();
+                $favorite->save();
+                $response[] = "liked";
+            }
+            $likeCount = Like::where('imageid', '=', $id[2])->count();
+            $response[] = $likeCount;
+            
+            echo json_encode($response);
         }else {
-            $favorite = Like::firstOrNew(['imageid' => $id[2], 'userid' => Auth::id()]);
-            $favorite->imageid = $id[2];
-            $favorite->userid = Auth::id();
-            $favorite->save();
-            $response[] = "liked";
+            echo json_encode(0);
         }
-        $likeCount = Like::where('imageid', '=', $id[2])->count();
-        $response[] = $likeCount;
         
-        echo json_encode($response);
     }
 }

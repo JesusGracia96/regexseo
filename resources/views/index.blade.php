@@ -46,6 +46,9 @@
                 },
                 type: 'post',
                 success: function(response) {
+                    if(response == 0){
+                        window.location = "{{ route('auth') }}"
+                    }
                     let data = JSON.parse(response);
                     if (data[0] == "liked") {
                         $('#like-' + imgId).css('color', 'red');
@@ -54,7 +57,6 @@
                         $('#like-' + imgId).css('color', 'black');
                         $('#like-span-' + imgId).text(data[0])
                     }
-                    
                 }
 
             })
