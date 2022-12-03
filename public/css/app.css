@@ -2,6 +2,12 @@ html,
 body {
     margin: 0;
     padding: 0;
+    max-width: 100%;
+}
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -17,7 +23,7 @@ body {
 }
 
 .w-100 {
-    width: 100%;
+    width: 100% !important;
 }
 
 .mr-1 {
@@ -102,17 +108,11 @@ body {
     cursor: pointer;
 }
 
-.btn i {
-    position: relative;
-    font-size: 16px;
-    left: -1em;
-    top: 2px;
-    color: #515151;
-}
-
 .btn-navbar {
-    width: 178px;
+    width: 10em;
+    min-width: max-content;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .btn-w {
@@ -201,7 +201,7 @@ body {
     color: black;
 }
 
-input[type="checkbox"] {
+#isAdmin {
     appearance: none;
     -webkit-appearance: none;
     width: 30px;
@@ -215,7 +215,7 @@ input[type="checkbox"] {
     align-items: center;
 }
 
-input[type="checkbox"]:after {
+#isAdmin:after {
     font-family: 'Font Awesome 5 Free';
     content: "\f00c";
     font-size: 20px;
@@ -224,10 +224,10 @@ input[type="checkbox"]:after {
     display: none;
 }
 
-input[type="checkbox"]:checked {
+#isAdmin:checked {
     background-color: #c4c4c4;
 }
 
-input[type="checkbox"]:checked:after {
+#isAdmin:checked:after {
     display: block;
 }

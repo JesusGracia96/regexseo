@@ -19,32 +19,30 @@
 </head>
 
 <body>
-    <div class="navbar py-1">
-        <div class="h-100 d-flex justify-content-center align items_center">
-            <div class="lft-side d-flex flex-1 align-items-center">
-                <a href="{{ url('/') }}">{{ config('app.name') }}</a>
-            </div>
-            <div class="rgt-side  d-flex flex-1 align-items-center justify-content-right">
+    <nav class="navbar">
+        <div class="logo"><a href="{{ url('/') }}">{{ config('app.name') }}</a></div>
+        <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <div class="menu">
                 @auth
-                    <p class="mr-1">{{ Auth::user()->email }}</p>
+                    <li>{{ Auth::user()->email }}</li>
                     @if (Auth::user()->roleid == 1)
-                        <a href="{{ route('moderation') }}" class="btn btn-w btn-navbar mr-3">Moderation</a>
+                        <li><a href="{{ route('moderation') }}" class="btn btn-w btn-navbar mr-3">Moderation</a></li>
                     @endif
-                    <a href="{{ route('favorites') }}" class="btn btn-w btn-navbar"><i class="fa fa-heart"></i>FAVORITES</a>
-                    <a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a>
-                    <a href="{{ route('logout') }}" class="btn btn-g ml-3 btn-navbar">LOGOUT</a>
+                    <li><a href="{{ route('favorites') }}" class="btn btn-w btn-navbar"><i
+                                class="fa fa-heart"></i><span class="ml-1">FAVORITES</span></a></li>
+                    <li><a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a></li>
+                    <li><a href="{{ route('logout') }}" class="btn btn-g ml-3 btn-navbar">LOGOUT</a></li>
                 @else
-                    <a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a>
-                    <a href="{{ route('auth') }}" class="btn btn-g ml-3 btn-navbar">LOGIN</a>
+                    <li><a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a></li>
+                    <li><a href="{{ route('auth') }}" class="btn btn-g ml-3 btn-navbar">LOGIN</a></li>
                 @endauth
             </div>
-        </div>
-    </div>
-
-    <div class="py-1 pt-1 app-div">
+        </ul>
+    </nav>
+    
+    <div class="app-div">
         @yield('content')
     </div>
-
-</body>
-
 </html>

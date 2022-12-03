@@ -6,7 +6,7 @@
 }
 
 .image-card img{
-    max-height: 366px;
+    height: 366px;
     max-width: 100%;
     height: auto;
 }

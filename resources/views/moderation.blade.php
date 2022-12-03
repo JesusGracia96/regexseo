@@ -17,22 +17,8 @@
 
 
     <x-view-image />
-
+    <script src="{{ asset('js/imageView.js') }}"></script>
     <script>
-        $('.image-prev').click(function() {
-            let imageSrc = $(this).attr('src');
-            let title = $(this).siblings('.image-title').text();
-            $("#image-view").removeClass('d-none');
-            $("#image-view").find('#title-view-image').text(title);
-            $("#image-view img").attr('src', imageSrc);
-            $('.dark-bg').removeClass('d-none');
-        });
-
-        $('#closeImage').click(function() {
-            $("#image-view").addClass('d-none');
-            $('.dark-bg').addClass('d-none');
-        });
-
         $('.btn-allow').click(function() {
             var imageId = $(this).val();
             $.ajax({

@@ -1,8 +1,9 @@
 @extends('layout.app')
 <link rel="stylesheet" href="{{ asset('/css/index.css') }}">
 <link rel="stylesheet" href="{{ asset('css/components/viewImage.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/components/imagecard.css') }}">
 @section('content')
-    <div class="main-images">
+    <div class="main-images pt-1">
         @if ($images->count() > 0)
             @foreach ($images as $image)
                 <x-image-card id="id-image-{{ $image->id }}" image="{{ asset('storage/' . $image->name) }}"
@@ -19,23 +20,10 @@
 
     <x-view-image />
 
+    <script src="{{ asset('js/imageView.js') }}"></script>
     <script>
-        $('.image-prev').click(function() {
-            let imageSrc = $(this).attr('src');
-            let title = $(this).siblings('.image-title').text();
-            $("#image-view").removeClass('d-none');
-            $("#image-view").find('#title-view-image').text(title);
-            $("#image-view img").attr('src', imageSrc);
-            $('.dark-bg').removeClass('d-none');
-        });
-
-        $('#closeImage').click(function() {
-            $("#image-view").addClass('d-none');
-            $('.dark-bg').addClass('d-none');
-        });
-
         $('.like-btn').click(function() {
-            var imgId = $(this).parent().parent().attr('id');
+            var imgId = $(this).parent().parent().parent().attr('id');
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -46,14 +34,14 @@
                 },
                 type: 'post',
                 success: function(response) {
-                    if(response == 0){
+                    if (response == 0) {
                         window.location = "{{ route('auth') }}"
                     }
                     let data = JSON.parse(response);
                     if (data[0] == "liked") {
                         $('#like-' + imgId).css('color', 'red');
                         $('#like-span-' + imgId).text(data[1])
-                    }else {
+                    } else {
                         $('#like-' + imgId).css('color', 'black');
                         $('#like-span-' + imgId).text(data[0])
                     }
@@ -62,5 +50,4 @@
             })
         })
     </script>
-
 @endsection
