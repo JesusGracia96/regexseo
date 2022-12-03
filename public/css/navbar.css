@@ -1,21 +1,126 @@
 .navbar {
-    height: 80px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
-    background: #FFF;
 }
 
-.lft-side {
-    flex: 1;
+.logo {
+    font-size: 32px;
+    min-width: max-content;
 }
 
-.lft-side a {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 28px;
+.logo a {
+    color: #000;
     text-decoration: none;
-    color: #000000;
 }
 
-.rgt-side {
-    flex: 1;
+ul {
+    list-style: none;
+}
+
+.menu {
+    display: flex;
+    gap: 1rem;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 26px;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        height: 0;
+        position: absolute;
+        color: white;
+        background-color: #515151;
+        right: 0;
+        left: 0;
+        top: 100px;
+        text-align: center;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .menu li {
+        height: 10vw;
+        border-bottom: 1px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        width: 100%;
+        background-color: #515151;
+        color: white;
+        border: 0 !important;
+        margin: 0;
+    }
+
+    .btn-navbar {
+        width: 100vw !important;
+    }
+
+    .menu li:hover {
+        display: inline-block;
+        transition: 0.3s ease;
+    }
+
+    .menu li + li {
+        margin-top: 0 !important;
+    }
+
+    input[type="checkbox"]:checked ~ .menu {
+        display: block;
+        height: max-content;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* Estilos de página principal */
+
+    .main-images {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        row-gap: 10px;
+        columns: 1 100vw;
+    }
+
+    .image-card {
+        display: block;
+        min-width: 100%;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+    }
+
+    .image-card .main-image-container {
+        width: 100%;
+        object-fit: contain;
+        height: auto;
+        text-align: center;
+    }
+
+    .image-prev {
+        width: 100%;
+        height: auto;
+    }
+
+    .image-info {
+        padding: 1em; 
+    }
 }

@@ -15,25 +15,13 @@
             </div>
         @endif
     </div>
+
     <x-view-image />
 
+    <script src="{{ asset('js/imageView.js') }}"></script>
     <script>
-        $('.image-prev').click(function() {
-            let imageSrc = $(this).attr('src');
-            let title = $(this).siblings('.image-title').text();
-            $("#image-view").removeClass('d-none');
-            $("#image-view").find('#title-view-image').text(title);
-            $("#image-view img").attr('src', imageSrc);
-            $('.dark-bg').removeClass('d-none');
-        });
-
-        $('#closeImage').click(function() {
-            $("#image-view").addClass('d-none');
-            $('.dark-bg').addClass('d-none');
-        });
-
         $('.like-btn').click(function() {
-            var imgId = $(this).parent().parent().attr('id');
+            var imgId = $(this).parent().parent().parent().attr('id');
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
