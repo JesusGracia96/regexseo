@@ -1,7 +1,7 @@
 @extends('layout.app')
 <link rel="stylesheet" href="{{ asset('/css/auth/index.css') }}">
 @section('content')
-    <div class="auth-forms d-flex justify-content-center flex-column align-items-center">
+    <div class="auth-forms d-flex justify-content-center flex-column align-items-center pt-1">
         <div class="buttons">
             <button id="btn-login" class="btn btn-w btn-navbar btn-left btn-auth">
                 SIGN IN

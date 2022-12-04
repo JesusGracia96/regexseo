@@ -1,8 +1,10 @@
 @extends('layout.app')
 <link rel="stylesheet" href="{{ asset('/css/index.css') }}">
 <link rel="stylesheet" href="{{ asset('css/components/viewImage.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/components/imagecard.css') }}">
+
 @section('content')
-    <div class="main-images">
+    <div class="main-images py-1 pt-1">
         @if ($images->count() > 0)
             @foreach ($images as $image)
                 <x-image-card id="id-image-{{ $image->id }}" image="{{ asset('storage/' . $image->name) }}"
@@ -17,6 +19,7 @@
 
 
     <x-view-image />
+    
     <script src="{{ asset('js/imageView.js') }}"></script>
     <script>
         $('.btn-allow').click(function() {

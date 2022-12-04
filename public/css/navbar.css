@@ -1,10 +1,15 @@
 .navbar {
     width: 100vw;
+    padding: 30px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    flex-wrap: nowrap;
 }
 
 .logo {
@@ -36,7 +41,7 @@ input[type="checkbox"] {
     user-select: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1270px) {
     .menu {
         display: none;
         height: 0;
@@ -69,7 +74,7 @@ input[type="checkbox"] {
         margin: 0;
     }
 
-    .btn-navbar {
+    .menu .btn-navbar {
         width: 100vw !important;
     }
 
@@ -90,7 +95,9 @@ input[type="checkbox"] {
     .hamburger {
         display: block;
     }
+}
 
+@media (max-width: 768px) {
     /* Estilos de página principal */
 
     .main-images {
@@ -111,6 +118,7 @@ input[type="checkbox"] {
     .image-card .main-image-container {
         width: 100%;
         object-fit: contain;
+        object-position: 50% 50%;
         height: auto;
         text-align: center;
     }
@@ -121,6 +129,6 @@ input[type="checkbox"] {
     }
 
     .image-info {
-        padding: 1em; 
+        padding: 1em;
     }
 }

@@ -20,29 +20,32 @@
 
 <body>
     <nav class="navbar">
-        <div class="logo"><a href="{{ url('/') }}">{{ config('app.name') }}</a></div>
-        <ul class="nav-links">
-            <input type="checkbox" id="checkbox_toggle" />
-            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-            <div class="menu">
-                @auth
-                    <li>{{ Auth::user()->email }}</li>
-                    @if (Auth::user()->roleid == 1)
-                        <li><a href="{{ route('moderation') }}" class="btn btn-w btn-navbar mr-3">Moderation</a></li>
-                    @endif
-                    <li><a href="{{ route('favorites') }}" class="btn btn-w btn-navbar"><i
-                                class="fa fa-heart"></i><span class="ml-1">FAVORITES</span></a></li>
-                    <li><a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a></li>
-                    <li><a href="{{ route('logout') }}" class="btn btn-g ml-3 btn-navbar">LOGOUT</a></li>
-                @else
-                    <li><a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a></li>
-                    <li><a href="{{ route('auth') }}" class="btn btn-g ml-3 btn-navbar">LOGIN</a></li>
-                @endauth
-            </div>
-        </ul>
+        <span class="navbar-container">
+            <div class="logo"><a href="{{ url('/') }}">{{ config('app.name') }}</a></div>
+            <ul class="nav-links">
+                <input type="checkbox" id="checkbox_toggle" />
+                <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+                <div class="menu">
+                    @auth
+                        <li>{{ Auth::user()->email }}</li>
+                        @if (Auth::user()->roleid == 1)
+                            <li><a href="{{ route('moderation') }}" class="btn btn-w btn-navbar mr-3">Moderation</a></li>
+                        @endif
+                        <li><a href="{{ route('favorites') }}" class="btn btn-w btn-navbar"><i class="fa fa-heart"></i><span
+                                    class="ml-1">FAVORITES</span></a></li>
+                        <li><a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a></li>
+                        <li><a href="{{ route('logout') }}" class="btn btn-g ml-3 btn-navbar">LOGOUT</a></li>
+                    @else
+                        <li><a href="{{ route('upload') }}" class="btn btn-mg ml-3 btn-navbar">UPLOAD</a></li>
+                        <li><a href="{{ route('auth') }}" class="btn btn-g ml-3 btn-navbar">LOGIN</a></li>
+                    @endauth
+                </div>
+            </ul>
+        </span>
     </nav>
-    
+
     <div class="app-div">
         @yield('content')
     </div>
+
 </html>

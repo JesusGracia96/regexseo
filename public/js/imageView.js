@@ -16,7 +16,7 @@ function enable() {
 $('.image-prev').click(function() {
     disable();
     let imageSrc = $(this).attr('src');
-    let title = $(this).siblings('.image-title').text();
+    let title = $(this).parent().parent().find('.image-title').text();
     $("#image-view").removeClass('d-none');
     $("#image-view").find('#title-view-image').text(title);
     $("#image-view img").attr('src', imageSrc);

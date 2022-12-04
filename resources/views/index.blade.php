@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/components/viewImage.css') }}">
 <link rel="stylesheet" href="{{ asset('/css/components/imagecard.css') }}">
 @section('content')
-    <div class="main-images pt-1">
+    <div class="main-images pt-1 py-1">
         @if ($images->count() > 0)
             @foreach ($images as $image)
                 <x-image-card id="id-image-{{ $image->id }}" image="{{ asset('storage/' . $image->name) }}"

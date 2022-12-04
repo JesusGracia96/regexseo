@@ -6,7 +6,7 @@
         @if ($images->count() > 0)
             @foreach ($images as $image)
                 <x-image-card id="id-image-{{ $image->id }}" image="{{ asset('storage/' . $image->name) }}"
-                    title="{{ $image->title }}" description="{{ $image->description }}" likes="{{ $image->count }}"
+                    title="{{ $image->title }}" description="{{ $image->description }}" likes=""
                     author="{{ $image->email }}" />
             @endforeach
         @else
